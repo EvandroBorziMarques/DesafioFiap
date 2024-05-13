@@ -28,7 +28,7 @@ namespace Infra.Repositorios.RepositorioTurma
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("ID", id);
 
-            return _repositorioBase.QuereyFirst<Turma>("TurmaGetById", parameters);
+            return _repositorioBase.QueryFirst<Turma>("TurmaGetById", parameters);
         }
         public List<Turma> TurmaList()
         {
@@ -51,6 +51,13 @@ namespace Infra.Repositorios.RepositorioTurma
             parameters.Add("id", id);
 
             return _repositorioBase.Execute("TurmaDelete", parameters);
+        }
+
+        public int TurmaVerify(string turma)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("class", turma);
+            return _repositorioBase.QueryFirst<int>("TurmaVerify", parameters); ;
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Infra.Repositorios.Base
             _connectionString = configuration["ConnectionStrings:SQLServer"];
         }
 
-        public T QuereyFirst<T>(string procedure, DynamicParameters parameters)
+        public T QueryFirst<T>(string procedure, DynamicParameters parameters)
         {
             int commandTimeoutSeconds = 180;
 

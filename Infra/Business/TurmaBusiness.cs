@@ -1,5 +1,6 @@
 ﻿using Dominio.Entidades;
 using Dominio.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace Infra.Business
 
         public bool TurmaCreate(Turma turma)
         {
+            if (!TurmaVerify(turma.Class))
+                return false;
             bool response = _repositorioTurma.TurmaCreate(turma);
             return response;
         }
@@ -40,6 +43,11 @@ namespace Infra.Business
         public bool TurmaDelete(int id)
         {
             bool response = _repositorioTurma.TurmaDelete(id);
+            return response;
+        }
+        private bool TurmaVerify(string turma)
+        {
+            bool response = _repositorioTurma.TurmaVerify(turma).Equals(0) ? true : false;
             return response;
         }
     }

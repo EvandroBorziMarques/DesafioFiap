@@ -28,7 +28,7 @@ namespace Infra.Repositorios.RepositorioAluno
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("ID", id);
 
-            return _repositorioBase.QuereyFirst<Aluno>("AlunoGetById", parameters);
+            return _repositorioBase.QueryFirst<Aluno>("AlunoGetById", parameters);
         }
 
         public List<Aluno> AlunoList()
