@@ -26,14 +26,14 @@ namespace AlunoAPI.Controllers
         /// <returns></returns>
         [HttpPost("create")]
         [Produces("application/json")]
-        [ProducesResponseType(typeof(Turma), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(TurmaDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<TurmaDTO> TurmaCreate([FromBody] Turma turma)
+        public ActionResult<TurmaDTO> TurmaCreate([FromBody] TurmaDTO turmaDTO)
         {
             try
             {
-                bool response = _turma.TurmaCreate(turma);
+                bool response = _turma.TurmaCreate(turmaDTO);
                 return response ? Created(string.Empty, "Turma criada com sucesso") : BadRequest("Turma não criada!");
             }
             catch (Exception ex)
@@ -57,7 +57,7 @@ namespace AlunoAPI.Controllers
             try
             {
                 List<Turma> turma = _turma.TurmaList();
-                return Ok(_mapper.Map<List<TurmaDTO>>(turma));
+                return Ok(_mapper.Map<List<Turma>>(turma));
             }
             catch (Exception ex)
             {

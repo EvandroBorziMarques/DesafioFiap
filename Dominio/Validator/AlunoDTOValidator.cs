@@ -1,11 +1,11 @@
-﻿using Dominio.Entidades;
+﻿using Dominio.DTO;
 using FluentValidation;
 
 namespace Dominio.Validator
 {
-    public class AlunoValidator : AbstractValidator<Aluno>
+    public class AlunoDTOValidator : AbstractValidator<AlunoDTO>
     {
-        public AlunoValidator()
+        public AlunoDTOValidator()
         {
             RuleFor(a => a.Name).NotEmpty().WithMessage("Campo Obrigatório");
             RuleFor(a => a.Name).NotNull().WithMessage("Campo Obrigatório");

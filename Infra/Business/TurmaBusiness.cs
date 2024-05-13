@@ -1,4 +1,5 @@
-﻿using Dominio.Entidades;
+﻿using Dominio.DTO;
+using Dominio.Entidades;
 using Dominio.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -18,11 +19,11 @@ namespace Infra.Business
             _repositorioTurma = repositorioTurma;
         }
 
-        public bool TurmaCreate(Turma turma)
+        public bool TurmaCreate(TurmaDTO turmaDTO)
         {
-            if (!TurmaVerify(turma.Class))
+            if (!TurmaVerify(turmaDTO.Class))
                 return false;
-            bool response = _repositorioTurma.TurmaCreate(turma);
+            bool response = _repositorioTurma.TurmaCreate(turmaDTO);
             return response;
         }
         public List<Turma> TurmaList()

@@ -26,14 +26,14 @@ namespace AlunoAPI.Controllers
         /// <returns></returns>
         [HttpPost("create")]
         [Produces("application/json")]
-        [ProducesResponseType(typeof(Aluno), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(AlunoDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<AlunoDTO> AlunoCreate([FromBody] Aluno aluno)
+        public ActionResult<AlunoDTO> AlunoCreate([FromBody] AlunoDTO alunoDTO)
         {
             try
             {
-                bool response = _aluno.AlunoCreate(aluno);
+                bool response = _aluno.AlunoCreate(alunoDTO);
                 return response ? Created(string.Empty, "Aluno criado com sucesso") : BadRequest("Registro não criado!");
             }
             catch (Exception ex)
@@ -57,7 +57,7 @@ namespace AlunoAPI.Controllers
             try
             {
                 List<Aluno> aluno = _aluno.AlunoList();
-                return Ok(_mapper.Map<List<AlunoDTO>>(aluno));
+                return Ok(_mapper.Map<List<Aluno>>(aluno));
             }
             catch (Exception ex)
             {
@@ -102,10 +102,6 @@ namespace AlunoAPI.Controllers
         {
             try
             {
-                //Validação de payload
-                //if (alunoDTO.ID != id)
-                //    return BadRequest("Id diferentes");
-
                 bool response = _aluno.AlunoUpdate(aluno);
 
                 return response ? Ok("Registro atualizado com sucesso!") : BadRequest("Registro não encontrado") ;

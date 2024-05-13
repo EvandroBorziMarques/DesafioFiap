@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Dominio.DTO;
 using Dominio.Entidades;
 using Dominio.Interfaces;
 
@@ -13,13 +14,12 @@ namespace Infra.Repositorios.RepositorioTurma
             _repositorioBase = repositorioBase;
         }
 
-        public bool TurmaCreate(Turma turma)
+        public bool TurmaCreate(TurmaDTO turmaDTO)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("ID", turma.ID);
-            parameters.Add("CourseId", turma.CourseId);
-            parameters.Add("Class", turma.Class);
-            parameters.Add("Year", turma.Year);
+            parameters.Add("CourseId", turmaDTO.CourseId);
+            parameters.Add("Class", turmaDTO.Class);
+            parameters.Add("Year", turmaDTO.Year);
 
             return _repositorioBase.Execute("TurmaCreate", parameters);
         }

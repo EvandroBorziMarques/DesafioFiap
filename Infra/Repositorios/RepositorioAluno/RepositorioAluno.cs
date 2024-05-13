@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Dominio.DTO;
 using Dominio.Entidades;
 using Dominio.Interfaces;
 
@@ -13,13 +14,12 @@ namespace Infra.Repositorios.RepositorioAluno
             _repositorioBase = repositorioBase;
         }
 
-        public bool AlunoCreate(Aluno aluno)
+        public bool AlunoCreate(AlunoDTO alunoDTO)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("ID", aluno.ID);
-            parameters.Add("Name", aluno.Name);
-            parameters.Add("User", aluno.User);
-            parameters.Add("Password", aluno.Password);
+            parameters.Add("Name", alunoDTO.Name);
+            parameters.Add("User", alunoDTO.User);
+            parameters.Add("Password", alunoDTO.Password);
 
             return _repositorioBase.Execute("AlunoCreate", parameters);
         }

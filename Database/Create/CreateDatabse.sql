@@ -1,14 +1,14 @@
 ﻿CREATE DATABASE fiap;
 
 CREATE TABLE aluno (
-    id int NOT NULL PRIMARY KEY,
+    id int NOT NULL PRIMARY KEY IDENTITY,
     nome varchar(255),
     usuario varchar(45),
     senha char(60)
 );
 
 CREATE TABLE turma (
-    id int NOT NULL PRIMARY KEY,
+    id int NOT NULL PRIMARY KEY IDENTITY,
     curso_id int,
     turma varchar(45),
     ano int,    

@@ -1,11 +1,11 @@
-﻿using Dominio.Entidades;
+﻿using Dominio.DTO;
 using FluentValidation;
 
 namespace Dominio.Validator
 {
-    public class TurmaValidator : AbstractValidator<Turma>
+    public class TurmaDTOValidator : AbstractValidator<TurmaDTO>
     {
-        public TurmaValidator()
+        public TurmaDTOValidator()
         {
             RuleFor(t => t.CourseId).NotEmpty().WithMessage("Campo Obrigatório");
             RuleFor(t => t.CourseId).NotNull().WithMessage("Campo Obrigatório");
@@ -16,6 +16,6 @@ namespace Dominio.Validator
 
             RuleFor(t => t.Year).NotEmpty().WithMessage("Campo Obrigatório");
             RuleFor(t => t.Year).NotEmpty().WithMessage("Campo Obrigatório");
-        }           
+        }
     }
 }

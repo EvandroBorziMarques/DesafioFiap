@@ -8,6 +8,7 @@ using FluentValidation.AspNetCore;
 using FluentValidation;
 using Dominio.Entidades;
 using Dominio.Validator;
+using Dominio.DTO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,8 +28,6 @@ builder.Services.AddSwaggerGen(c =>
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
 });
-
-builder.Services.AddTransient<IValidator<Aluno>, AlunoValidator>();
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 

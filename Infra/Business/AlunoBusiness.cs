@@ -1,4 +1,5 @@
-﻿using Dominio.Entidades;
+﻿using Dominio.DTO;
+using Dominio.Entidades;
 using Dominio.Interfaces;
 using System.Reflection.Metadata;
 using System.Security.Cryptography;
@@ -15,10 +16,10 @@ namespace Infra.Business
             _repositorioAluno = repositorioAluno;
         }
 
-        public bool AlunoCreate(Aluno aluno)
+        public bool AlunoCreate(AlunoDTO alunoDTO)
         {
-            aluno.Password = EncriptPassword(aluno.Password);
-            bool response = _repositorioAluno.AlunoCreate(aluno);
+            alunoDTO.Password = EncriptPassword(alunoDTO.Password);
+            bool response = _repositorioAluno.AlunoCreate(alunoDTO);
             return response;
         }
         public List<Aluno> AlunoList()

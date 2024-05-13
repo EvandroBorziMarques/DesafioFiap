@@ -1,10 +1,11 @@
-﻿using Dominio.Entidades;
+﻿using Dominio.DTO;
+using Dominio.Entidades;
 
 namespace Dominio.Interfaces
 {
     public interface ITurma
     {
-        bool TurmaCreate(Turma turma);
+        bool TurmaCreate(TurmaDTO turmaDTO);
         List<Turma> TurmaList();
         Turma TurmaGetById(int id);
         bool TurmaUpdate(Turma turma);
