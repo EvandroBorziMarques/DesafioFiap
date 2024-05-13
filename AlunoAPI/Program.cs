@@ -9,6 +9,7 @@ using FluentValidation;
 using Dominio.Entidades;
 using Dominio.Validator;
 using Dominio.DTO;
+using static System.Net.Mime.MediaTypeNames;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,7 +57,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Test API V1");
+        c.RoutePrefix = string.Empty;
+    } );
 }
 
 app.UseCors(x => x

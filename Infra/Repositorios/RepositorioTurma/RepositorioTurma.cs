@@ -52,7 +52,6 @@ namespace Infra.Repositorios.RepositorioTurma
 
             return _repositorioBase.Execute("TurmaDelete", parameters);
         }
-
         public int TurmaVerify(string turma)
         {
             DynamicParameters parameters = new DynamicParameters();

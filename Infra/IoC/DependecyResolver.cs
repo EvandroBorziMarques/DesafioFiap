@@ -8,6 +8,7 @@ using Dominio.DTO;
 using Dominio.Entidades;
 using Dominio.Validator;
 using FluentValidation;
+using Infra.Repositorios.RepositorioAlunoTurma;
 
 namespace Infra.IoC
 {
@@ -17,9 +18,11 @@ namespace Infra.IoC
         {
             services.AddScoped<IAluno, AlunoBusiness>();
             services.AddScoped<ITurma, TurmaBusiness>();
+            services.AddScoped<IAlunoTurma, AlunoTurmaBusiness>();
             services.AddScoped<IRepositorioBase, RepositorioBase>();
             services.AddScoped<IRepositorioAluno, RepositorioAluno>();
             services.AddScoped<IRepositorioTurma, RepositorioTurma>();
+            services.AddScoped<IRepositorioAlunoTurma, RepositorioAlunoTurma>();
             services.AddTransient<IValidator<Aluno>, AlunoValidator>();
             services.AddTransient<IValidator<AlunoDTO>, AlunoDTOValidator>();
             services.AddTransient<IValidator<Turma>, TurmaValidator>();
