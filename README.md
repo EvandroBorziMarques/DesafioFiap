@@ -38,5 +38,9 @@ Tecnologias usadas para construir a aplicação
 - SqlServer
 
 ## Link imagem docker <a href="https://hub.docker.com/repository/docker/evandroborzi/sqlserver/general">SQLServer</a>.
-### Caso deseja criar o banco de dados em sua máquina sem o uso do docker, os comandos estão no projeto "Database".
+### Se a imagem do docker acima apresentar algum problema, crie um container executando o comando abaixo:
+```bash
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=TesteFiap1234!@#$" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-CU14-ubuntu-20.04
+```
+### Caso necessite criar o banco de dados, os comandos estão no projeto "Database".
 
