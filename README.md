@@ -37,5 +37,6 @@ Tecnologias usadas para construir a aplicação
 - Docker / Docker Hub
 - SqlServer
 
-## Link imagem docker <a href="https://hub.docker.com/_/microsoft-mssql-server">SQLServer</a>.
+## Link imagem docker <a href="https://hub.docker.com/repository/docker/evandroborzi/sqlserver/general">SQLServer</a>.
+### Caso deseja criar o banco de dados em sua máquina sem o uso do docker, os comandos estão no projeto "Database".
 
