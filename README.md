@@ -6,20 +6,20 @@ Desafio FIAP
 
 - API CRUD que contém: :heavy_check_mark:
   - Aluno
-    - Criar
-    - Buscar Lista
-    - Buscar por ID
-    - Atualizar
-    - Deletar
+    - Criar aluno
+    - Listar alunos
+    - Buscar aluno por ID
+    - Atualizar aluno
+    - Deletar aluno
   - Turma
-    - Criar
-    - Buscar Lista
-    - Buscar por ID
-    - Atualizar
-    - Deletar
+    - Criar turma
+    - Listar todas as turmas
+    - Buscar turma por ID
+    - Atualizar turma
+    - Deletar turma
   - Relacionamento entre Aluno e Turma
-    - Criar
-    - Deletar
+    - Criar aluno e turma
+    - Deletar aluno e turma
 
 ## Tech Stack
 
